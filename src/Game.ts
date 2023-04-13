@@ -94,31 +94,46 @@ class Robot {
             return;
         }
         const { x, y, direction} = this.position;
-        console.log(`Output: ${x},${y},${direction}`);
+        console.log(`Coordinates: ${x},${y},${direction}`);
     }
    
 
 }
 
+
+
 // Example usage
 const robot = new Robot();
 
-robot.move(); // "Robot has not been placed yet"
+const readline = require('readline').createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
 
-robot.place(0, 0, "NORTH");
-robot.move();
-robot.report(); // "0,1,NORTH"
+function processCommand(input: string) {
+    const [command, args] = input.split(" ");
+    switch (command.toUpperCase()) {
+        case "PLACE":
+            const [x, y, direction] = args.split(",");
+            robot.place(parseInt(x), parseInt(y), direction as Direction);
+            break;
+        case "MOVE":
+            robot.move();
+            break;
+        case "LEFT":
+            robot.left();
+            break;
+        case "RIGHT":
+            robot.right();
+            break;
+        case "REPORT":
+            robot.report();
+            break;
+        default:
+            console.log(`Invalid command: ${input}`);
+    }
+}
 
-robot.place(0, 0, "NORTH");
-robot.left();
-robot.report(); // "0,0,WEST"
-
-robot.place(1, 2, "EAST");
-robot.move();
-robot.move();
-robot.left();
-robot.move();
-robot.report(); // "3,3,NORTH"
-
-robot.place(4, 4, "NORTH");
-robot.move(); // "Invalid position"
+readline.on('line', (input: string) => {
+    processCommand(input);
+});
