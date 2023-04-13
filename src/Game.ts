@@ -100,9 +100,6 @@ class Robot {
 
 }
 
-
-
-// Example usage
 const robot = new Robot();
 
 const readline = require('readline').createInterface({
