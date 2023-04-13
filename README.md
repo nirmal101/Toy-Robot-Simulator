@@ -7,7 +7,7 @@ Before you begin, make sure you have the following software installed:
 * Node.js (version 14 or higher)
 * npm (version 6 or higher)
 ## Installation
-1. Clone this repository: git clone https://github.com/your-username/toy-robot-simulation.git
+1. Clone this repository: git clone https://github.com/nirmal101/Toy-Robot-Simulator.git
 2. Install the dependencies: 
 ```
 npm install
