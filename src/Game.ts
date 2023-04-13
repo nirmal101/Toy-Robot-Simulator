@@ -74,5 +74,38 @@ class Robot {
         const newDirectionIndex = (currentDirectionIndex + rotationDirection + directions.length) % directions.length;
         this.position.direction = directions[newDirectionIndex];
     }
-    
+
+    public report(): void {
+        if (!this.position) {
+            console.log("Robot has not been placed yet");
+            return;
+        }
+
+        const { x, y, direction} = this.position;
+        console.log(`Output: ${x},${y},${direction}`);
+    }
+
 }
+
+// Example usage
+const robot = new Robot();
+
+robot.move(); // "Robot has not been placed yet"
+
+robot.place(0, 0, "NORTH");
+robot.move();
+robot.report(); // "0,1,NORTH"
+
+robot.place(0, 0, "NORTH");
+robot.left();
+robot.report(); // "0,0,WEST"
+
+robot.place(1, 2, "EAST");
+robot.move();
+robot.move();
+robot.left();
+robot.move();
+robot.report(); // "3,3,NORTH"
+
+robot.place(4, 4, "NORTH");
+robot.move(); // "Invalid position"
