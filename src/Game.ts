@@ -1,9 +1,9 @@
 console.log('Welcome to the Toy Robot Simulation')
-
+type Direction = "NORTH" | "EAST" | "SOUTH" | "WEST";
 interface Position{
     x: number;
     y: number;
-    direction: "NORTH"| "EAST" | "SOUTH" | "WEST";
+    direction: Direction;
 }
 
 class Robot {
@@ -51,4 +51,28 @@ class Robot {
         this.position.y = newY;
 
     }
+
+    public right(): void {
+        this.rotate(1);
+    }
+
+    public left(): void {
+        this.rotate(-1);
+    }
+
+    private rotate(rotationDirection: -1| 1): void {
+        //dry
+        if (!this.position) {
+            console.log("Robot has not been placed yet");
+            return
+        }
+
+        const { direction } = this.position;
+        //dry
+        const directions: Direction[] = [ "NORTH", "EAST", "SOUTH", "WEST"];
+        const currentDirectionIndex = directions.indexOf(direction);
+        const newDirectionIndex = (currentDirectionIndex + rotationDirection + directions.length) % directions.length;
+        this.position.direction = directions[newDirectionIndex];
+    }
+    
 }

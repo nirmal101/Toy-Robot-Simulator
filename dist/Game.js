@@ -37,4 +37,23 @@ class Robot {
         this.position.x = newX;
         this.position.y = newY;
     }
+    right() {
+        this.rotate(1);
+    }
+    left() {
+        this.rotate(-1);
+    }
+    rotate(rotationDirection) {
+        //dry
+        if (!this.position) {
+            console.log("Robot has not been placed yet");
+            return;
+        }
+        const { direction } = this.position;
+        //dry
+        const directions = ["NORTH", "EAST", "SOUTH", "WEST"];
+        const currentDirectionIndex = directions.indexOf(direction);
+        const newDirectionIndex = (currentDirectionIndex + rotationDirection + directions.length) % directions.length;
+        this.position.direction = directions[newDirectionIndex];
+    }
 }
