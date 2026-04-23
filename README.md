@@ -4,6 +4,40 @@ A simulation of a toy robot moving on a 5×5 tabletop, built in Java 21 with Mav
 
 The robot responds to commands from a plain-text file and reports its position on request. It ignores any command that would move it off the table or that arrives before it has been placed.
 
+## Quick Start
+
+No build required — a pre-built jar is included.
+
+**Requirement:** Java 21
+
+```bash
+# Run the spec examples
+java -jar robot-simulator.jar src/test/resources/test_a.txt
+# Output: 0,1,NORTH
+
+java -jar robot-simulator.jar src/test/resources/test_b.txt
+# Output: 0,0,WEST
+
+java -jar robot-simulator.jar src/test/resources/test_c.txt
+# Output: 3,3,NORTH
+
+# Run the constraint and scenario examples
+java -jar robot-simulator.jar examples/constraint_initial_placement.txt
+java -jar robot-simulator.jar examples/constraint_boundary_movement.txt
+java -jar robot-simulator.jar examples/corner_to_corner.txt
+java -jar robot-simulator.jar examples/second_place_replaces_first.txt
+```
+
+## Running Tests
+
+**Requirement:** Java 21, Maven 3.x
+
+```bash
+mvn test
+```
+
+81 tests across domain, command, parser, and simulator layers.
+
 ## Commands
 
 | Command | Description |
@@ -14,7 +48,7 @@ The robot responds to commands from a plain-text file and reports its position o
 | `RIGHT` | Rotate 90° right without moving |
 | `REPORT` | Print the robot's current position and direction to stdout |
 
-## Input format
+## Input Format
 
 A plain `.txt` file with one command per line, uppercase. Empty lines are skipped. Unknown or invalid commands are silently ignored.
 
@@ -33,26 +67,10 @@ Output:
 3,3,NORTH
 ```
 
-## Requirements
-
-- Java 21
-- Maven 3.x
-
-## Running tests
-
-```bash
-mvn test
-```
-
-## Build
+## Build From Source
 
 ```bash
 mvn package
-```
-
-## Run
-
-```bash
 java -jar target/robot-simulator.jar path/to/commands.txt
 ```
 
