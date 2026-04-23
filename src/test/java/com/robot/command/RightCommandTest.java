@@ -27,4 +27,15 @@ class RightCommandTest {
         robot.place(new Position(0, 0), NORTH);
         assertTrue(new RightCommand().execute(robot, table).isEmpty());
     }
+
+    @Test void full_right_rotation_cycle_returns_to_origin() {
+        Robot robot = new Robot();
+        robot.place(new Position(0, 0), NORTH);
+        RightCommand right = new RightCommand();
+        right.execute(robot, table);
+        right.execute(robot, table);
+        right.execute(robot, table);
+        right.execute(robot, table);
+        assertEquals("0,0,NORTH", robot.report());
+    }
 }

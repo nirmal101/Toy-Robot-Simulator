@@ -45,4 +45,8 @@ class CommandParserTest {
     @Test void returns_empty_for_place_with_spaces_in_args() {
         assertTrue(parser.parse("PLACE 1, 2, NORTH").isEmpty());
     }
+
+    @Test void returns_empty_for_null_input() {
+        assertTrue(parser.parse(null).isEmpty());
+    }
 }

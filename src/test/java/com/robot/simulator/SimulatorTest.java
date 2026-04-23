@@ -98,6 +98,25 @@ class SimulatorTest {
         assertEquals(List.of("0,0,NORTH"), output);
     }
 
+    @Test void malformed_place_lines_are_skipped() {
+        List<String> output = new Simulator().run(List.of(
+            "PLACE x,y,NORTH",
+            "PLACE 1",
+            "PLACE 0,0,NORTH",
+            "REPORT"
+        ));
+        assertEquals(List.of("0,0,NORTH"), output);
+    }
+
+    @Test void invalid_second_place_does_not_alter_robot_state() {
+        List<String> output = new Simulator().run(List.of(
+            "PLACE 2,2,EAST",
+            "PLACE 5,5,NORTH",
+            "REPORT"
+        ));
+        assertEquals(List.of("2,2,EAST"), output);
+    }
+
     // --- Helpers ---
 
     private List<String> run(Path path) throws Exception {
