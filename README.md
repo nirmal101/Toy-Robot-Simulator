@@ -36,7 +36,7 @@ java -jar robot-simulator.jar src/test/resources/second_place_replaces_first.txt
 mvn test
 ```
 
-81 tests across domain, command, parser, and simulator layers.
+73 tests across domain, command, parser, and simulator layers.
 
 ## Commands
 
