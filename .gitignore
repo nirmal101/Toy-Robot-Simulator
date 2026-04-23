@@ -7,6 +7,9 @@
 # Maven build output
 target/
 
+# Problem statement PDF
+*.pdf
+
 # IDE files
 .idea/
 *.iml
