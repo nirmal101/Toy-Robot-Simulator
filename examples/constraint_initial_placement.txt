@@ -1,0 +1,9 @@
+# Constraint: initial placement off the table is ignored
+# PLACE 5,0 and -1,0 and 0,5 are all out of bounds — robot stays unplaced
+# Only the final valid PLACE takes effect
+PLACE 5,0,NORTH
+PLACE -1,0,NORTH
+PLACE 0,5,NORTH
+PLACE 0,0,NORTH
+REPORT
+# Expected: 0,0,NORTH

@@ -1,0 +1,22 @@
+# Constraint: any move that would cause the robot to fall is ignored
+# Tests all four edges — robot stays at the edge in each case
+
+PLACE 0,0,SOUTH
+MOVE
+REPORT
+# Expected: 0,0,SOUTH (south edge, can't go to y=-1)
+
+PLACE 0,0,WEST
+MOVE
+REPORT
+# Expected: 0,0,WEST (west edge, can't go to x=-1)
+
+PLACE 4,4,NORTH
+MOVE
+REPORT
+# Expected: 4,4,NORTH (north edge, can't go to y=5)
+
+PLACE 4,4,EAST
+MOVE
+REPORT
+# Expected: 4,4,EAST (east edge, can't go to x=5)

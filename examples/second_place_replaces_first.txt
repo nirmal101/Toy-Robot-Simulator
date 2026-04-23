@@ -1,0 +1,11 @@
+# A second valid PLACE mid-sequence fully replaces robot state
+PLACE 0,0,NORTH
+MOVE
+MOVE
+REPORT
+# Expected: 0,2,NORTH
+
+PLACE 3,3,WEST
+MOVE
+REPORT
+# Expected: 2,3,WEST

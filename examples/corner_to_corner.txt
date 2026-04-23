@@ -1,0 +1,13 @@
+# Navigate from (0,0) to (4,4) — bottom-left to top-right corner
+PLACE 0,0,NORTH
+MOVE
+MOVE
+MOVE
+MOVE
+RIGHT
+MOVE
+MOVE
+MOVE
+MOVE
+REPORT
+# Expected: 4,4,EAST
