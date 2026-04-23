@@ -22,10 +22,10 @@ java -jar robot-simulator.jar src/test/resources/test_c.txt
 # Output: 3,3,NORTH
 
 # Run the constraint and scenario examples
-java -jar robot-simulator.jar examples/constraint_initial_placement.txt
-java -jar robot-simulator.jar examples/constraint_boundary_movement.txt
-java -jar robot-simulator.jar examples/corner_to_corner.txt
-java -jar robot-simulator.jar examples/second_place_replaces_first.txt
+java -jar robot-simulator.jar src/test/resources/constraint_initial_placement.txt
+java -jar robot-simulator.jar src/test/resources/constraint_boundary_movement.txt
+java -jar robot-simulator.jar src/test/resources/corner_to_corner.txt
+java -jar robot-simulator.jar src/test/resources/second_place_replaces_first.txt
 ```
 
 ## Running Tests
