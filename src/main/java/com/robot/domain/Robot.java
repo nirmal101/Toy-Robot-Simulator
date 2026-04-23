@@ -29,6 +29,7 @@ public class Robot {
     }
 
     public String report() {
+        if (!isPlaced()) throw new IllegalStateException("Robot is not placed");
         return position.x() + "," + position.y() + "," + direction;
     }
 
